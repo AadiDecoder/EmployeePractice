@@ -1,4 +1,4 @@
-FROM openjdk:21
+FROM openjdk:21-alpine
 
 # Install PostgreSQL client for pg_isready
 RUN apk update && apk add postgresql-client
