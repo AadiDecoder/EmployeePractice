@@ -1,7 +1,7 @@
-FROM openjdk:21-alpine
+FROM eclipse-temurin:21-jdk
 
 # Install PostgreSQL client for pg_isready
-RUN apk update && apk add postgresql-client
+RUN apt-get update && apt-get install -y postgresql-client
 
 WORKDIR /appContainer
 
