@@ -6,6 +6,7 @@ pipeline {
     }
 
     environment {
+		PATH = "/usr/local/bin:${env.PATH}"
 		APP_NAME = "spring-cicd-demo"
         RELEASE_NO = "1.0.0"
         DOCKER_USER = "adarshdev11"
