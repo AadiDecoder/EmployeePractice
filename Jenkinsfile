@@ -65,5 +65,11 @@ pipeline {
         '''
     }
 }
+stage('Build and Run with Compose') {
+			steps {
+				sh 'docker-compose build'
+                sh 'docker-compose up -d'
+    }
+}
 	}
 }
