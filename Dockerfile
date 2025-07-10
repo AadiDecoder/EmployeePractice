@@ -1,13 +1,15 @@
 FROM openjdk:21
 
-# Set working directory inside the container
+# Install PostgreSQL client for pg_isready
+RUN apt-get update && apt-get install -y postgresql-client
+
 WORKDIR /appContainer
 
-# Copy the JAR file into the container
 COPY ./target/demo.jar .
+COPY wait-for-postgres.sh .
 
-# Expose the application port (optional, for documentation)
+RUN chmod +x wait-for-postgres.sh
+
 EXPOSE 8282
 
-# Run the JAR file
-CMD ["java", "-jar", "demo.jar"]
+CMD ["sh", "wait-for-postgres.sh"]

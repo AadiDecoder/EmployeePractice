@@ -54,5 +54,16 @@ pipeline {
                 }
             }
         }
+        stage('Generate Compose File') {
+			steps {
+				sh '''
+          export DOCKER_USER=${DOCKER_USER}
+          export APP_NAME=${APP_NAME}
+          export RELEASE_NO=${RELEASE_NO}
+          export BUILD_NUMBER=${BUILD_NUMBER}
+          envsubst < docker-compose.template.yml > docker-compose.yml
+        '''
+    }
+}
 	}
 }

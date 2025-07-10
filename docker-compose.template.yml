@@ -3,6 +3,7 @@ version: '3.8'
 services:
   app:
     build: .
+    image: ${DOCKER_USER}/${APP_NAME}:${RELEASE_NO}-${BUILD_NUMBER}
     container_name: spring-app
     ports:
       - "8282:8282"
