@@ -1,7 +1,7 @@
 FROM openjdk:21
 
 # Install PostgreSQL client for pg_isready
-RUN apt-get update && apt-get install -y postgresql-client
+RUN apk update && apk add postgresql-client
 
 WORKDIR /appContainer
 
